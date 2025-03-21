@@ -46,3 +46,14 @@
 # ==========================  
 # Ejercicio 3
 # ==========================  
+def fact_calc(x):
+    if x == 0 or x ==1:
+        return 1
+    return x*fact_calc(x - 1)
+     
+def fact():
+    value = int(input("Ingresa un numero para calcular su factorial: "))
+    factorial = fact_calc(value);
+    print(f"El valor factorial para {value} es: {factorial}")
+
+fact()
