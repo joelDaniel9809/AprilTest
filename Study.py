@@ -296,6 +296,107 @@ def ex_5():
     print(dicc)
 
 ex_5()
+# %%
+# Manejo de cadena de caracteres
+# ====================================================================================
+# Ejercicio 1: Contar Vocales en una Cadena
+# Descripción: Escribe un programa que cuente el número de vocales (a, e, i, o, u) 
+# en una cadena de texto ingresada por el usuario.recuencia de cada elemento en un 
+# arreglo
+# ===================================================================================="""
+def vowel_count(chain):
+
+    vowels = "aeiouAEIOU"
+    count =0
+    for a in chain:
+        if a in vowels:
+            count+=1
+    return count
+
+def ex_1():
+    chain = "QWERTYUIOPasdfghjklzxcvbnm"
+    vowels = vowel_count(chain)
+    print(vowels)
+
+ex_1()
+# %%
+# ====================================================================================
+# Ejercicio 2: Invertir una Cadena
+# Descripción: Escribe un programa que invierta una cadena 
+# de texto ingresada por el usuario.
+# ===================================================================================="""
+
+def invert(chain):
+    return chain[::-1]
 
 
+def ex_2():
+    chain = "JoelDaniel"
+    print(invert(chain))
+
+ex_2()
+    # %%
+# ====================================================================================
+# Ejercicio 3: Contar Palabras en una Cadena
+# Descripción: Escribe un programa que cuente el número de palabras
+# en una cadena de texto ingresada por el usuario.
+# ===================================================================================="""
+def count_w(chain):
+    words = chain.split()
+    return len(words)
+
+def ex_3():
+    chain = "Joel Daniel Matos Diaz"
+    print(count_w(chain))
+
+ex_3()
+
+    # %%
+# ====================================================================================
+# Ejercicio 4: Reemplazar Caracteres en una Cadena
+# Descripción: Escribe un programa que reemplace todas las ocurrencias de un carácter
+# específico en una cadena de texto por otro carácter.
+# ===================================================================================="""
+
+def repl(chain,a):
+    n_chain = chain.replace(a,"*")
+    return n_chain
+
+def ex_4():
+    chain = "Joel Daniel Matos Diaz"
+    print(repl(chain,"e"))
+
+ex_4()
+    # %%
+# ====================================================================================
+# Ejercicio 5: Verificar si una Cadena es un Palíndromo
+# Descripción: Escribe un programa que verifique si una cadena de texto es 
+# un palíndromo (se lee igual de izquierda a derecha que de derecha a izquierda).
+# ===================================================================================="""
+
+def pal(chain):
+    chain = chain.replace(" ","").lower()
+
+    return chain == chain[::-1]
+
+def ex_5():
+    chain = "ab Ba"
+    print(pal(chain))
+
+ex_5()
+# %%
+# Recursividad. 
+# ====================================================================================
+# Ejercicio 1: Factorial de un Número
+# Descripción: Escribe una función recursiva para calcular el factorial de un número. 
+# El factorial de un número n(denotado como n!) es el producto de todos los enteros positivos desde 1 hasta n
+# ===================================================================================="""
+
+def fact (n):
+    if (n == 1 or n == 0):
+        return 1
+    return n*fact(n-1)
+
+def ex_1():
+    
 
