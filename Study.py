@@ -176,7 +176,6 @@ def val():
 val()
 
 # %%
-"""
 # ====================================================================================
 # Ejercicio 3: Invertir un Arreglo
 # Descripción: Escribe un programa que invierta el orden de los elementos en un arreglo.
@@ -219,4 +218,84 @@ def ex_3():
 
 # call for ex_3 function
 ex_3()
+# %%
+# ====================================================================================
+# Ejercicio 4: Implementar una Pila (Stack)
+# Descripción: Implementa una pila usando una lista en Python. Debe incluir operaciones 
+# para agregar (push), eliminar (pop) y ver el elemento en el tope (peek).
+# ===================================================================================="""
+
+# Class with all modules
+class Stack:
+
+    # class constructor
+    def __init__(self):
+        self.items = []
+    
+    # Push module with functionality for adding a value to the end of the stack
+    def push(self,x):
+        self.items.append(x)
+
+    # Pop module with functionality for deleting a value from the end of the stack
+    def pop(self):
+        if len(self.items):
+            return self.items.pop()
+        return None
+    
+    # Peek module with functionality for returnof the value to the end of the stack
+    def peek(self):
+        if len(self.items):
+            return self.items[-1]
+        return None
+    
+    # returns True if there are no values on the stack and False if there is
+    def is_empty(self):
+        if len(self.items):
+            return False
+        return True
+
+    
+def ex_4():
+    pila = Stack()
+    pila.push(10)
+    pila.push(20)
+    pila.push(30)
+    
+    print(pila.peek()) 
+    
+    while pila.is_empty() != True:
+        print(f"Elemento eliminado {pila.pop()}")
+
+ex_4()
+# %%
+# ====================================================================================
+# Ejercicio 5: Contar Frecuencia de Elementos en un Arreglo
+# Descripción: Escribe un programa que cuente la frecuencia de cada elemento en un arreglo
+# y almacene los resultados en un diccionario.
+# ===================================================================================="""
+
+def count_freq(arr):
+    dicc = {}
+    for i in arr:
+        if i in dicc:
+            dicc [i] +=1; 
+        else:
+            dicc[i] = 1
+    return dicc
+
+def ex_5():
+    
+    arr = []
+    value = 1
+    
+    while value != "0":
+        value = input()
+        arr.append(value)
+    
+    dicc = count_freq(arr)
+    print(dicc)
+
+ex_5()
+
+
 
