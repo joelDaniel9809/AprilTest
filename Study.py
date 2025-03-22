@@ -179,7 +179,7 @@ val()
 # ====================================================================================
 # Ejercicio 3: Invertir un Arreglo
 # Descripción: Escribe un programa que invierta el orden de los elementos en un arreglo.
-# ===================================================================================="""
+# ====================================================================================
 
 # Function that inverts the original function's elements order
 def invert(x):
@@ -223,7 +223,7 @@ ex_3()
 # Ejercicio 4: Implementar una Pila (Stack)
 # Descripción: Implementa una pila usando una lista en Python. Debe incluir operaciones 
 # para agregar (push), eliminar (pop) y ver el elemento en el tope (peek).
-# ===================================================================================="""
+# ====================================================================================
 
 # Class with all modules
 class Stack:
@@ -272,7 +272,7 @@ ex_4()
 # Ejercicio 5: Contar Frecuencia de Elementos en un Arreglo
 # Descripción: Escribe un programa que cuente la frecuencia de cada elemento en un arreglo
 # y almacene los resultados en un diccionario.
-# ===================================================================================="""
+# ====================================================================================
 
 def count_freq(arr):
     dicc = {}
@@ -303,7 +303,7 @@ ex_5()
 # Descripción: Escribe un programa que cuente el número de vocales (a, e, i, o, u) 
 # en una cadena de texto ingresada por el usuario.recuencia de cada elemento en un 
 # arreglo
-# ===================================================================================="""
+# ====================================================================================
 def vowel_count(chain):
 
     vowels = "aeiouAEIOU"
@@ -324,7 +324,7 @@ ex_1()
 # Ejercicio 2: Invertir una Cadena
 # Descripción: Escribe un programa que invierta una cadena 
 # de texto ingresada por el usuario.
-# ===================================================================================="""
+# ====================================================================================
 
 def invert(chain):
     return chain[::-1]
@@ -339,8 +339,8 @@ ex_2()
 # ====================================================================================
 # Ejercicio 3: Contar Palabras en una Cadena
 # Descripción: Escribe un programa que cuente el número de palabras
-# en una cadena de texto ingresada por el usuario.
-# ===================================================================================="""
+# en una cadena de texto ingresada por el usuario
+# ====================================================================================
 def count_w(chain):
     words = chain.split()
     return len(words)
@@ -356,7 +356,7 @@ ex_3()
 # Ejercicio 4: Reemplazar Caracteres en una Cadena
 # Descripción: Escribe un programa que reemplace todas las ocurrencias de un carácter
 # específico en una cadena de texto por otro carácter.
-# ===================================================================================="""
+# ====================================================================================
 
 def repl(chain,a):
     n_chain = chain.replace(a,"*")
@@ -372,7 +372,7 @@ ex_4()
 # Ejercicio 5: Verificar si una Cadena es un Palíndromo
 # Descripción: Escribe un programa que verifique si una cadena de texto es 
 # un palíndromo (se lee igual de izquierda a derecha que de derecha a izquierda).
-# ===================================================================================="""
+# ====================================================================================
 
 def pal(chain):
     chain = chain.replace(" ","").lower()
@@ -390,7 +390,7 @@ ex_5()
 # Ejercicio 1: Factorial de un Número
 # Descripción: Escribe una función recursiva para calcular el factorial de un número. 
 # El factorial de un número n(denotado como n!) es el producto de todos los enteros positivos desde 1 hasta n
-# ===================================================================================="""
+# ====================================================================================
 
 def fact (n):
     if (n == 1 or n == 0):
@@ -398,5 +398,76 @@ def fact (n):
     return n*fact(n-1)
 
 def ex_1():
+    numb  = 6
+    print (fact(numb))
+
+ex_1()
+# %%
+# Recursividad. 
+# ====================================================================================
+# Ejercicio 1: Factorial de un Número
+# Descripción: Escribe una función recursiva para calcular el factorial de un número. 
+# El factorial de un número n(denotado como n!) es el producto de todos los enteros positivos desde 1 hasta n
+# ====================================================================================
+
+def fact (n):
+    if (n == 1 or n == 0):
+        return 1
+    return n*fact(n-1)
+
+def ex_2():
+    numb  = 6
+    print (fact(numb))
+
+ex_2()
+# %%
+# ====================================================================================
+#Ejercicio 3: Fibonacci Recursivo
+# Descripción: Escribe una función recursiva para calcular el n-ésimo número de 
+# la secuencia de Fibonacci. La secuencia de Fibonacci comienza con 0 y 1,
+# y cada número subsiguiente es la suma de los dos anteriores. 
+# ====================================================================================
+
+def fibb (n):
+    if n == 1:
+        return 1
+    if n == 0:
+        return 0
+    return fibb(n-1) + fibb (n-2)
+
+
+def ex_4():
+    numb  = 6
+    print (fibb(numb))
+
+ex_4()
+# %%
+# ====================================================================================
+# Ejercicio 5: Búsqueda Binaria Recursiva
+# Descripción: Implementa una función recursiva para realizar una búsqueda binaria en
+# una lista ordenada. La búsqueda binaria divide repetidamente la lista en dos mitades y 
+# busca el elemento en la mitad correspondiente.
+# ====================================================================================
+
+def bin_search(list,target,start,end):
     
+    if start > end:
+        return -1
+    # Con //, obtienes un número entero, que es lo que necesitas para acceder a un elemento en una lista.
+    half = (start+end)//2
+    
+    if list[half] == target:
+        return half
+    elif list[half] < target:
+        return bin_search(list,target,start,half-1)
+    elif list[half] < target:
+        return bin_search(list,target,half+1,end)
+
+def ex_5():
+    list = [1,2,4,5,7,9,10,13,15,16]
+    target = 7
+
+    print (bin_search(list,target,0,len(list)-1))
+
+ex_5()
 
