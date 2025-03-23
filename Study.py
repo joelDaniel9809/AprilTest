@@ -471,3 +471,92 @@ def ex_5():
 
 ex_5()
 
+# %%
+# Manejo de archivos
+# ====================================================================================
+# Ejercicio 1: Leer un Archivo de Texto
+# Descripción: Escribe un programa que lea un archivo de texto y muestre 
+# su contenido en la consola.
+# ====================================================================================
+"""El bloque with garantiza que el recurso (en este caso, el archivo) se cierre 
+automáticamente después de que se complete el bloque de código, incluso si ocurre 
+una excepción."""
+
+def leer_archivo(nombre_archivo):
+    with open(nombre_archivo, "r") as archivo:  # Abre el archivo en modo lectura
+        contenido = archivo.read()  # Lee todo el contenido del archivo
+        print(contenido)  # Imprime el contenido
+    # El archivo se cierra automáticamente al salir del bloque 'with'
+# Llamada a la función
+leer_archivo("archivo.txt")
+
+# %%
+# ====================================================================================
+# Ejercicio 2: Escribir en un Archivo de Texto
+# Descripción: Escribe un programa que permita al usuario ingresar texto
+# y lo guarde en un archivo.
+# ====================================================================================
+
+def mod_file(file_name,text_to_add):
+    with open(file_name,"w") as file:
+        file.write(text_to_add)
+    with open(file_name,"r") as file:
+        content = file.read()
+        print(content)
+
+mod_file("archivo.txt","Hello World")
+
+# %%
+# ====================================================================================
+# Ejercicio 3: Contar Líneas en un Archivo
+# Descripción: Escribe un programa que cuente el número de
+# líneas en un archivo de texto.
+# ====================================================================================
+def count_lines(file_name):
+    with open(file_name,"r") as file:
+        lines = file.readlines()
+        return len(lines)
+    
+print (count_lines("archivo.txt"))
+
+# %%
+# ====================================================================================
+# Ejercicio 4: Copiar un Archivo
+# Descripción: Escribe un programa que copie el contenido de un archivo 
+# a otro archivo.
+# ====================================================================================
+
+def copy_file(file_name_1,file_name_2):
+    with open (file_name_1,"r") as file_1:
+        content = file_1.read()
+    with open(file_name_2,"w") as file_2:
+        file_2.write(content)
+
+copy_file("file_1.txt","file_2.txt")
+
+# %%
+# ====================================================================================
+# Ejercicio 5: Buscar una Palabra en un Archivo
+# Descripción: Escribe un programa que busque una palabra en un archivo de texto y
+# muestre las líneas donde aparece.
+# ====================================================================================
+
+def find_word(file_name,find):
+    with open(file_name,"r") as file:
+        content = file.readlines()
+    for i in range(0 , len(content)):
+        if content[i].find(find) != -1:
+            print (f"Su texto se encuentra en la linea {i+1}.")
+    
+find_word("file_1.txt","here")
+
+""""Solucion de la IA"""
+# def buscar_palabra(nombre_archivo, palabra):
+#     with open(nombre_archivo, "r") as archivo:
+#         lineas = archivo.readlines()
+#         for i, linea in enumerate(lineas, 1):
+#             if palabra in linea:
+#                 print(f"Línea {i}: {linea.strip()}")
+
+# # Llamada a la función
+# buscar_palabra("archivo.txt", "Python")
